@@ -22,7 +22,8 @@
     "build": "npm run build:vite && npm run electron:build",
     "electron:dev": "wait-on http://localhost:5173 && electron .",
     "lint": "eslint .",
-    "prettier": "prettier -w ."
+    "prettier": "prettier -w .",
+    "preparePR": "npm run prettier && npm run lint && LUTRIS_GAMEPAD_UI_LOCALE_CLEANUP=1 npm run build:vite"
   },
   "dependencies": {
     "@futpib/paclient": "github:andrew-ld/paclient#450fc5046e2bb6b3ce7920211ec89bc3748d0463",

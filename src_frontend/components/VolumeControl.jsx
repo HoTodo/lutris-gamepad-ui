@@ -5,12 +5,12 @@ import { useAudio } from "../stores/audioStore";
 import { useSettingsActions, useSettingsState } from "../stores/settingsStore";
 import { useTranslation } from "../stores/translationStore";
 
+import CheckMark from "./CheckMark";
 import DialogLayout from "./DialogLayout";
 import FocusableRow from "./FocusableRow";
 import PercentageBar from "./PercentageBar";
 import ToggleButton from "./ToggleButton";
 import "../styles/VolumeControl.css";
-import CheckMark from "./CheckMark";
 
 export const VolumeControlFocusID = "VolumeControl";
 
@@ -157,7 +157,7 @@ const VolumeControl = ({ onClose }) => {
   const renderItem = useCallback(
     (item, isFocused, onMouseEnter, ref) => {
       let handleRowClick;
-      let isChecked = undefined;
+      let isChecked;
 
       if (item.type === CONTROL_TYPES.MUTE) {
         handleRowClick = toggleMute;
@@ -174,9 +174,11 @@ const VolumeControl = ({ onClose }) => {
           onMouseEnter={onMouseEnter}
           onClick={handleRowClick}
         >
-          {isChecked !== undefined
-            ? (<CheckMark checked={isChecked} label={item.label} />)
-            : (<span className="settings-menu-label">{item.label}</span>)}
+          {isChecked === undefined ? (
+            <span className="settings-menu-label">{item.label}</span>
+          ) : (
+            <CheckMark checked={isChecked} label={item.label} />
+          )}
           {item.type === CONTROL_TYPES.MUTE && (
             <ToggleButton
               isToggledOn={isMuted}

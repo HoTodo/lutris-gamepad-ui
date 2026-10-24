@@ -129,7 +129,9 @@ export const useGameShelves = (games, searchQuery) => {
 
     // show games without category at the end (category is more important to user - otherwise he would not have them categorized)
     if (settings.showOtherGames) {
-      const otherGames = currentGames.filter(g => (g.categories || []).length == 0);
+      const otherGames = currentGames.filter(
+        (g) => (g.categories || []).length === 0,
+      );
       const otherGamesSorted = sortGames(otherGames, settings.librarySortMode);
       newShelves.push({ title: t("Other Games"), games: otherGamesSorted });
     }

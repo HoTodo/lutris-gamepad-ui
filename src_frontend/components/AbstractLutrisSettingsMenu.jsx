@@ -4,6 +4,7 @@ import RowBasedMenu from "../navigation/row_based_menu/RowBasedMenu";
 import { useTranslation } from "../stores/translationStore";
 import { useViewActions } from "../stores/viewStore";
 
+import CheckMark from "./CheckMark";
 import DialogLayout from "./DialogLayout";
 import FilePicker from "./FilePicker";
 import FocusableRow from "./FocusableRow";
@@ -11,7 +12,6 @@ import LoadingIndicator from "./LoadingIndicator";
 import OnScreenKeyboard from "./OnScreenKeyboard";
 import SelectionMenu from "./SelectionMenu";
 import ToggleButton from "./ToggleButton";
-import CheckMark from "./CheckMark";
 
 import "../styles/SettingsMenu.css";
 
@@ -252,9 +252,11 @@ const AbstractLutrisSettingsMenu = ({
           onMouseEnter={onMouseEnter}
           onClick={() => handleAction("A", item)}
         >
-          {item.type === "bool"
-            ? (<CheckMark checked={item.value} label={item.label} />)
-            : (<span className="settings-menu-label">{item.label}</span>)}
+          {item.type === "bool" ? (
+            <CheckMark checked={item.value} label={item.label} />
+          ) : (
+            <span className="settings-menu-label">{item.label}</span>
+          )}
           {control}
         </FocusableRow>
       );

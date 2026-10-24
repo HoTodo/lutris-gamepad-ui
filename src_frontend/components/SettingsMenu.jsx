@@ -4,11 +4,11 @@ import RowBasedMenu from "../navigation/row_based_menu/RowBasedMenu";
 import { useSettingsActions, useSettingsState } from "../stores/settingsStore";
 import { useTranslation } from "../stores/translationStore";
 
+import CheckMark from "./CheckMark";
 import DialogLayout from "./DialogLayout";
 import FocusableRow from "./FocusableRow";
 import PercentageBar from "./PercentageBar";
 import ToggleButton from "./ToggleButton";
-import CheckMark from "./CheckMark";
 
 import "../styles/SettingsMenu.css";
 
@@ -212,7 +212,10 @@ const SettingsMenu = ({ onClose }) => {
   }, [settings, updateSetting]);
 
   const toggleHighlightDisabledSettings = useCallback(() => {
-    updateSetting("highlightDisabledSettings", !settings.highlightDisabledSettings);
+    updateSetting(
+      "highlightDisabledSettings",
+      !settings.highlightDisabledSettings,
+    );
   }, [settings, updateSetting]);
 
   const toggleEnableUiActionSoundFeedbacks = useCallback(() => {
@@ -498,7 +501,10 @@ const SettingsMenu = ({ onClose }) => {
               onMouseEnter={onMouseEnter}
               onClick={toggleShowRecentlyPlayed}
             >
-              <CheckMark checked={settings.showRecentlyPlayed} label={item.label} />
+              <CheckMark
+                checked={settings.showRecentlyPlayed}
+                label={item.label}
+              />
               <ToggleButton
                 isToggledOn={settings.showRecentlyPlayed}
                 labelOn={t("Disable")}
@@ -552,7 +558,10 @@ const SettingsMenu = ({ onClose }) => {
               onMouseEnter={onMouseEnter}
               onClick={toggleDoubleConfirmPowerManagement}
             >
-              <CheckMark checked={settings.doubleConfirmPowerManagement} label={item.label} />
+              <CheckMark
+                checked={settings.doubleConfirmPowerManagement}
+                label={item.label}
+              />
               <ToggleButton
                 isToggledOn={settings.doubleConfirmPowerManagement}
                 labelOn={t("Disable")}
@@ -588,7 +597,10 @@ const SettingsMenu = ({ onClose }) => {
               onMouseEnter={onMouseEnter}
               onClick={toggleShowHiddenGames}
             >
-              <CheckMark checked={settings.showHiddenGames} label={item.label} />
+              <CheckMark
+                checked={settings.showHiddenGames}
+                label={item.label}
+              />
               <ToggleButton
                 isToggledOn={settings.showHiddenGames}
                 labelOn={t("Disable")}
@@ -624,7 +636,10 @@ const SettingsMenu = ({ onClose }) => {
               onMouseEnter={onMouseEnter}
               onClick={toggleUseRemoteDesktopPortal}
             >
-              <CheckMark checked={settings.useRemoteDesktopPortal} label={item.label} />
+              <CheckMark
+                checked={settings.useRemoteDesktopPortal}
+                label={item.label}
+              />
               <ToggleButton
                 isToggledOn={settings.useRemoteDesktopPortal}
                 labelOn={t("Disable")}
@@ -642,7 +657,10 @@ const SettingsMenu = ({ onClose }) => {
               onMouseEnter={onMouseEnter}
               onClick={toggleKeepGamesRunningOnQuit}
             >
-              <CheckMark checked={settings.keepGamesRunningOnQuit} label={item.label} />
+              <CheckMark
+                checked={settings.keepGamesRunningOnQuit}
+                label={item.label}
+              />
               <ToggleButton
                 isToggledOn={settings.keepGamesRunningOnQuit}
                 labelOn={t("Disable")}
@@ -660,7 +678,10 @@ const SettingsMenu = ({ onClose }) => {
               onMouseEnter={onMouseEnter}
               onClick={toggleHighlightDisabledSettings}
             >
-              <CheckMark checked={settings.highlightDisabledSettings} label={item.label} />
+              <CheckMark
+                checked={settings.highlightDisabledSettings}
+                label={item.label}
+              />
               <ToggleButton
                 isToggledOn={settings.highlightDisabledSettings}
                 labelOn={t("Disable")}
@@ -678,7 +699,10 @@ const SettingsMenu = ({ onClose }) => {
               onMouseEnter={onMouseEnter}
               onClick={toggleEnableUiActionSoundFeedbacks}
             >
-              <CheckMark checked={settings.enableUiActionSoundFeedbacks} label={item.label} />
+              <CheckMark
+                checked={settings.enableUiActionSoundFeedbacks}
+                label={item.label}
+              />
               <ToggleButton
                 isToggledOn={settings.enableUiActionSoundFeedbacks}
                 labelOn={t("Disable")}
@@ -892,7 +916,9 @@ const SettingsMenu = ({ onClose }) => {
       case "HIGHLIGHT_DISABLED_SETTINGS": {
         buttons.push({
           button: "A",
-          label: settings.highlightDisabledSettings ? t("Disable") : t("Enable"),
+          label: settings.highlightDisabledSettings
+            ? t("Disable")
+            : t("Enable"),
           onClick: toggleHighlightDisabledSettings,
         });
 

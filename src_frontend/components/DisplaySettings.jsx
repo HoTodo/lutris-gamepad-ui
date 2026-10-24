@@ -7,13 +7,13 @@ import { useTranslation } from "../stores/translationStore";
 import { useViewActions } from "../stores/viewStore";
 import * as api from "../utils/ipc";
 
+import CheckMark from "./CheckMark";
 import DialogLayout from "./DialogLayout";
 import FocusableRow from "./FocusableRow";
 import PercentageBar from "./PercentageBar";
 import ToggleButton from "./ToggleButton";
 
 import "../styles/DisplaySettings.css";
-import CheckMark from "./CheckMark";
 
 export const DisplaySettingsFocusID = "DisplaySettings";
 
@@ -167,9 +167,11 @@ const DisplaySettings = ({ onClose }) => {
               : undefined
           }
         >
-          {item.type === CONTROL_TYPES.NIGHT_LIGHT
-            ? (<CheckMark checked={item.value} label={item.label} />)
-            : (<span className="settings-menu-label">{item.label}</span>)}
+          {item.type === CONTROL_TYPES.NIGHT_LIGHT ? (
+            <CheckMark checked={item.value} label={item.label} />
+          ) : (
+            <span className="settings-menu-label">{item.label}</span>
+          )}
           {item.type === CONTROL_TYPES.BRIGHTNESS && (
             <PercentageBar percent={brightness} />
           )}

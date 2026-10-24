@@ -252,10 +252,10 @@
     "Volume": "Lautstärke"
   },
   "hooks/useGameShelves.js": {
-    "All Games": "Alle Spiele",
-    "Other Games": "Sonstige Spiele",
-    "Recently Played": "Zuletzt gespielt",
-    "Results for \"{{searchQuery}}\"": "Suchergebnis für \"{{searchQuery}}\""
+    "All Games": "All Games",
+    "Other Games": "Other Games",
+    "Recently Played": "Recently Played",
+    "Results for \"{{searchQuery}}\"": "Results for \"{{searchQuery}}\""
   },
   "navigation/row_based_menu/RowBasedMenuContent.jsx": {
     "No items available.": "Keine Einträge verfügbar."
